@@ -40,9 +40,13 @@ module FinalForm = {
 
   module FieldsProps = {
     [@bs.deriving abstract]
-    type t = {
+    type t('a) = {
       [@bs.optional]
       placeholder: string,
+      [@bs.optional]
+      allowNull: bool,
+      [@bs.optional]
+      initialValue: 'a,
     };
   };
 
@@ -100,7 +104,8 @@ module FinalForm = {
 
     [@bs.module "react-final-form"]
     external useField:
-      (~name: string, ~options: FieldsProps.t=?, unit) => FieldsRenderProps.t =
+      (~name: string, ~options: FieldsProps.t('a)=?, unit) =>
+      FieldsRenderProps.t =
       "useField";
   };
 };
