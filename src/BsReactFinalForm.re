@@ -47,6 +47,8 @@ module FinalForm = {
       allowNull: bool,
       [@bs.optional]
       initialValue: 'a,
+      [@bs.optional]
+      value: 'a,
     };
   };
 
